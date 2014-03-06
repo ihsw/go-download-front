@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Secret</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+        {# stylesheets #}
+        {% stylesheets output='css/css.css' filter='cssrewrite'
+            'bundles/ihswsecret/css/bootstrap.min.css'
+            'bundles/ihswsecret/css/font-awesome.min.css'
+            'bundles/ihswsecret/css/main.css'
+        %}
+            <link rel='stylesheet' href='{{ asset_url }}' />
+        {% endstylesheets %}
+
+        {# loading js libraries and client code #}
+        {% javascripts output='js/js.js'
+        %}
+            <script type='text/javascript' src='{{ asset_url }}'></script>
+        {% endjavascripts %}
+    </head>
+    <body>
+        <div class='navbar navbar-default navbar-fixed-top'>
+            <div class='container'>
+                <div class='btn-toolbar pull-left'>
+                    <div class='btn-group'>
+                        <a
+                            href='{{ path("home") }}'
+                            class='btn btn-default navbar-btn btn-sm'
+                        ><i class='fa fa-cloud'></i> Secret</a>
+                    </div>
+                </div>
+                <div class="btn-toolbar pull-left">
+                </div>
+                <div class="btn-toolbar pull-right">
+                </div>
+            </div>
+        </div>
+        <div class='container' style='margin-top: 60px; '>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

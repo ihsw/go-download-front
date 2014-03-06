@@ -1,0 +1,4 @@
+# misc
+home:
+    pattern:  /
+    defaults: { _controller: IhswSecretBundle:Default:index }
