@@ -1,0 +1,9 @@
+services:
+    my.twig_extension:
+        class: Ihsw\SecretBundle\Misc\TwigExtension
+        tags:
+            - { name: twig.extension }
+        arguments: [@service_container]
+    my.redis_helper:
+        class: Ihsw\SecretBundle\Helper\Redis
+        arguments: [%redis%]
