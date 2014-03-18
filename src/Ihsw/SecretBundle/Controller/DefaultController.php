@@ -13,11 +13,13 @@ class DefaultController extends Controller
     	// services
     	$container = $this->get('service_container');
     	$redisHelper = $this->get("my.redis_helper");
+
+        // caches
     	$redis = $redisHelper->getRedis();
-    	$keys = $redis->keys("*");
+    	$regionCache = new Region($redis);
 
         return $this->render('IhswSecretBundle:Default:home.html.twig', array(
-        	"keys" => $keys
+        	"greeting" => $regionCache->greeting()
     	));
     }
 }
