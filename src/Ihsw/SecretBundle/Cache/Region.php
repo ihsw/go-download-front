@@ -4,15 +4,10 @@ namespace Ihsw\SecretBundle\Cache;
 
 class Region
 {
-	private $redis;
-
-	public function __construct(\Redis $redis)
+	public function findAll()
 	{
-		$this->redis = $redis;
-	}
+		$redis = $this->redis;
 
-	public function greeting()
-	{
-		return "Hello, world!";
+		return $redis->lRange("region_ids", 0, -1);
 	}
 }

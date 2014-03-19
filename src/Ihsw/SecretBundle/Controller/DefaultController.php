@@ -19,7 +19,7 @@ class DefaultController extends Controller
     	$regionCache = new Region($redis);
 
         return $this->render('IhswSecretBundle:Default:home.html.twig', array(
-        	"greeting" => $regionCache->greeting()
+        	"regions" => $regionCache->findAll()
     	));
     }
 }
